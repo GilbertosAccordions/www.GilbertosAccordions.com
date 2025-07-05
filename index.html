@@ -1,170 +1,226 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contacto - Gilberto's Accordions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gilberto's accordions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-  }
+  /* Estilo global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
 
-  body {
-    background-color: #f5f5f5;
-    color: #1a1a1a;
-  }
+body {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+}
 
-  header {
-    background-color: #111827;
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-  }
+/* Header principal */
+header {
+  background-color: #111827;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
 
+header h1 {
+  font-size: 2.2rem;
+  color: #fca311;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #1d3557;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background-color: #457b9d;
+  color: #fca311;
+}
+
+/* Contenedor de productos con grid adaptable */
+.contenedor-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* Tarjeta de producto */
+.producto {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  background-color: #f9f9f9;
+  transition: transform 0.5s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.05);
+}
+
+/* Texto dentro del producto */
+.producto-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.producto-info h2 {
+  font-size: 1.2rem;
+  color: #e63946;
+  margin-bottom: 10px;
+}
+
+.producto-info p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebc5b;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111827;
+  color: white;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
+
+/* Ajustes para móviles */
+@media screen and (max-width: 768px) {
   header h1 {
-    font-size: 2.2rem;
-    color: #fca311;
+    font-size: 1.6rem;
   }
 
-  section {
-    max-width: 900px;
-    width: 100%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  nav a {
+    font-size: 0.9rem;
+    padding: 10px 12px;
   }
 
-  section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #e63946;
-    text-align: center;
-  }
-
-  section p {
+  .producto-info h2 {
     font-size: 1rem;
-    line-height: 1.7;
-    text-align: justify;
-    color: #444;
   }
 
-  .dato {
-    font-weight: bold;
-    color: #1d3557;
+  .producto-info p {
+    font-size: 0.9rem;
   }
 
-  .redes {
-    margin-top: 20px;
+  .whatsapp-float {
+    padding: 12px;
+    font-size: 20px;
   }
+}
 
-  .redes a {
-    display: block;
-    margin: 8px 0;
-    color: #1d3557;
-    text-decoration: none;
-    font-weight: 500;
-    word-break: break-word;
-  }
-
-  a.button-home {
-    display: inline-block;
-    margin-top: 30px;
-    text-decoration: none;
-    padding: 10px 20px;
-    background-color: #1d3557;
-    color: white;
-    border-radius: 8px;
-    transition: background 0.3s;
-    text-align: center;
-  }
-
-  a.button-home:hover {
-    background-color: #457b9d;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #111827;
-    color: white;
-    margin-top: 40px;
-    font-size: 0.95rem;
-  }
-
-  /* 📱 Estilos responsivos para móviles */
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 1.6rem;
-    }
-
-    section h2 {
-      font-size: 1.4rem;
-    }
-
-    section p, .redes a {
-      font-size: 0.95rem;
-    }
-
-    a.button-home {
-      padding: 10px 16px;
-      font-size: 0.95rem;
-    }
-
-    section {
-      margin: 20px 10px;
-      padding: 15px;
-    }
-
-    footer {
-      font-size: 0.85rem;
-    }
-  }
 </style>
 
 </head>
 <body>
-
   <header>
-    <h1>Contacto Oficial</h1>
+    <h1>Gilberto's accordions</h1>
+    <p>Venta de acordeones y productos musicales</p>
   </header>
 
-  <section>
-    <h2>Comunícate con confianza</h2>
-    <p>
-      Este es mi número oficial desde hace <span class="dato">10 años</span>:
-    </p>
-    <p class="dato">📞 +52 000 000 0000</p>
+  <nav>
+    <a href="#acordeones">Acordeones</a>
+    <a href="#otros">Instrumentos</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="quienesomos.html">Quienes Somos</a>
+  </nav>
 
-    <div class="redes">
-      <p>También puedes encontrarme en mis redes sociales oficiales:</p>
-      <a href="https://facebook.com/perfil-oficial" target="_blank">🌐 Facebook Oficial</a>
-      <a href="https://instagram.com/perfil-oficial" target="_blank">📸 Instagram Oficial</a>
+  <section class="contenedor-productos" id="acordeones">
+    <div class="producto">
+      <img src="H1.png" alt="Acordeón diatónico">
+      <div class="producto-info">
+        <h2>Acordeón Diatónico Hohner</h2>
+        <p>Excelente para música norteña. Sonido potente y elegante diseño.</p>
+      </div>
     </div>
 
-    <p style="margin-top: 20px; color: #e63946;">
-      ⚠️ Si no ves este número o los enlaces anteriores, es muy probable que sea una estafa. ¡Verifica siempre antes de comprar!
-      
-    </p>
-    <p style="margin-top: 20px; color: #e63946;">
-    ⚠️ Puedes pedir una video llamada para ver el instrumento que te interesa o bien para ver que la persona es real
-    </p>
-
-
-
-    <div style="text-align: center;">
-      <a href="index.html" class="button-home">Volver al Inicio</a>
+    <div class="producto">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Accordion-red.png" alt="Acordeón rojo">
+      <div class="producto-info">
+        <h2>Acordeón Rojo Profesional</h2>
+        <p>Perfecto para escenarios. Alta durabilidad y potencia sonora.</p>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Gilberto's Accordions. Todos los derechos reservados.</p>
-  </footer>
+  <section class="contenedor-productos" id="otros">
+    <div class="producto">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Bajo_sexto.jpg" alt="Bajo sexto">
+      <div class="producto-info">
+        <h2>Bajo Sexto Clásico</h2>
+        <p>Madera de alta calidad. El complemento ideal para tu grupo norteño.</p>
+      </div>
+    </div>
 
+    <div class="producto">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Guitar_full_body.jpg" alt="Guitarra">
+      <div class="producto-info">
+        <h2>Guitarra Acústica Yamaha</h2>
+        <p>Sonido cálido y profundo. Ideal para principiantes y profesionales.</p>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/5210000000000" target="_blank" class="whatsapp-float" title="Contáctanos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <p>&copy; 2025 Gilberto's accordions.</p>
+  </footer>
 </body>
 </html>
